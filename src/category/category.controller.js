@@ -39,3 +39,61 @@ export const añadirMarcasAProductos = async(req,res) =>{
         })
     }
 }
+
+export const eliminarCategoria = async (req, res) => {
+    try {
+
+        const { uid } = req.params;
+        const category = await Category.findById(uid);
+        const productIds = category.products;
+
+        if (!category) {
+            return res.status(404).json({
+                message: "CATEGORIA NO ENCONTRADA" 
+            })
+        }
+
+        await Category.findByIdAndUpdate(uid, { status: false, products: [] }, { new: true });
+        await Product.updateMany({ category: uid },{ category: null });
+
+        return res.status(200).json({ 
+            message: "CATEGORIA ELIMINADA DE PRODUCTOS" 
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            message: "FALLO EN LA ELIMINACION DE LA CATEGORIA",
+            error: err.message
+        })
+    }
+}
+
+
+export const actualizarCategoria = async(req,res) => {
+    try{
+        const { uid } = req.params;
+        const data = req.body
+
+        const category = await Category.findById(uid)
+
+        if(!category){
+            return res.status(404).json({
+                message: "CATEGORIA NO EXISTE",
+                error: err.message
+            })
+        }
+
+        const updatedCategory = await Category.findByIdAndUpdate(uid, data, {new: true})
+        
+        return res.status(200).json({ 
+            message: "CATEGORIA ACTUALIZADA",
+            updatedCategory
+        })
+
+    }catch(err){
+        return res.status(500).json({
+            message: "FALLO EN LA ACTUALIZACION DE LA CATEGORIA",
+            error: err.message
+        });
+    }
+}
