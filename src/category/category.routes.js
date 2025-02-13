@@ -16,4 +16,16 @@ router.post(
     añadirMarcasAProductos
 )
 
+router.patch(
+    "eliminarCategoria/:uid",
+    deleteCategoryValidator,
+    deleteCategory
+)
+
+router.patch(
+    "acualizarCategoria/:uid",
+    updateCategoryValidator,
+    updateCategory
+)
+
 export default router;
