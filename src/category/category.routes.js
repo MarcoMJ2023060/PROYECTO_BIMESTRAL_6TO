@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {registrarMarca, añadirMarcasAProductos, eliminarCategoria, actualizarCategoria} from "./category.controller.js"
+import {registrarMarca, añadirMarcasAProductos, eliminarCategoria, actualizarCategoria, visualizarCategorias} from "./category.controller.js"
 import {registrarMarcaValidador, añadirMarcasAProductosValidador, eliminarCategoriaValidador, actualizarCategoriaValidador} from "../middlewares/category-validator.js"
 
 const router = Router();
@@ -14,6 +14,11 @@ router.post(
     "/añadirCategoriaProducto/:uid",
     añadirMarcasAProductosValidador,
     añadirMarcasAProductos
+)
+
+router.get(
+    "/visualizarCategorias",
+    visualizarCategorias
 )
 
 router.patch(
