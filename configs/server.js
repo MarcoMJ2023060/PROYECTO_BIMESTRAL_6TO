@@ -10,6 +10,7 @@ import userRoutes from "../src/user/user.routes.js"
 import productRoutes from "../src/products/product.routes.js"
 import categoryRoutes from "../src/category/category.routes.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
+import { swaggerDocs, swaggerUi } from "./swagger.js"
 
 const middlewares = (app) =>{
     app.use(express.json())
@@ -24,6 +25,7 @@ const routes = (app) =>{
     app.use("/proyectoBimestral/v1/user", userRoutes)
     app.use("/proyectoBimestral/v1/products" , productRoutes)
     app.use("/proyectoBimestral/v1/category", categoryRoutes)
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
 const conectarDB = async () =>{

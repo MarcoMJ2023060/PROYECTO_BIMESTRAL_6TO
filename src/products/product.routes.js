@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { registrarProductos, obtenerProducto, obtenerCatalogo, editarProducto, incrementarInventario, decrementarInventario, productosAgotados, obtenerProductosMasVendidos, eliminarProducto } from "./product.controller.js";
+import { registrarProductos, obtenerProductos, obtenerCatalogo, editarProductos, incrementarInventario, decrementarInventario, productosAgotados, obtenerProductosMasVendidos, eliminarProducto } from "./product.controller.js";
 import { registrarProductosValidador, editarProductoValidador, incrementarInventarioValidador, decrementarInventarioValidador, productosAgotadosValidador, eliminarProductoValidador } from "../middlewares/product-validator.js";
 
 const router = Router();
@@ -62,7 +62,7 @@ router.post(
  */
 router.get(
     "/producto/:uid", 
-    obtenerProducto
+    obtenerProductos
 );
 
 /**
@@ -123,7 +123,7 @@ router.get(
 router.put(
     "/producto/:uid", 
     editarProductoValidador, 
-    editarProducto
+    editarProductos
 );
 
 /**
