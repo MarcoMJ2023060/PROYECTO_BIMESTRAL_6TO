@@ -94,6 +94,32 @@ export const actualizarCategoria = async(req,res) => {
         return res.status(500).json({
             message: "FALLO EN LA ACTUALIZACION DE LA CATEGORIA",
             error: err.message
-        });
+        })
+    }
+}
+
+export const visualizarCategorias = async (req, res) => {
+    try{
+        const { limite = 5, desde = 0 } = req.query
+        const query = { status: true }
+
+        const [total, categories ] = await Promise.all([
+            Category.countDocuments(query),
+            Category.find(query)
+                .skip(Number(desde))
+                .limit(Number(limite))
+        ])
+
+        return res.status(200).json({
+            success: true,
+            total,
+            categories
+        })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener los usuarios",
+            error: err.message
+        })
     }
 }
