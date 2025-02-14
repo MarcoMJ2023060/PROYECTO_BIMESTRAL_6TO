@@ -6,12 +6,12 @@ export const registrarProductos = async(req,res) =>{
         const product = await Product.create(data)
 
         return res.status(201).json({
-            message: "Brand has been registred",
+            message: "PRODUCTO HA SIDO REGISTRADO",
             product
         })
     }catch(error){
         return res.status(500).json({
-            message: "Brand registration failed",
+            message: "FALLO EN EL REGISTRO DEL PRODUCTO",
             error: error.message
         })
     }
@@ -23,17 +23,17 @@ export const obtenerProductos = async (req, res) => {
         const product = await Product.findById(uid);
         if (!product) {
             return res.status(404).json({
-                message: "Product not found"
-            });
+                message: "PRODUCTO NO ENCONTRADO"
+            })
         }
         return res.status(200).json(product);
     } catch (error) {
         return res.status(500).json({
-            message: "Failed to retrieve product",
+            message: "FALLO AL RECUPERAR EL PRODUCTO",
             error: error.message
-        });
+        })
     }
-};
+}
 
 export const obtenerCatalogo = async (req, res) => {
     try {
@@ -41,11 +41,11 @@ export const obtenerCatalogo = async (req, res) => {
         return res.status(200).json(products);
     } catch (err) {
         return res.status(500).json({
-            message: "Failed to retrieve catalog",
-            err: error.message
-        });
+            message: "FALLO AL RECUPERAR EL CATALOGO",
+            err: err.message
+        })
     }
-};
+}
 
 export const editarProductos = async (req, res) => {
     try {
@@ -54,20 +54,20 @@ export const editarProductos = async (req, res) => {
         const product = await Product.findByIdAndUpdate(uid, data, { new: true });
         if (!product) {
             return res.status(404).json({
-                message: "Product not found"
-            });
+                message: "PRODUCTO NO ENCONTRADO"
+            })
         }
         return res.status(200).json({
-            message: "Product updated successfully",
+            message: "PRODUCTO ACTUALIZADO CORRECTAMENTE",
             product
-        });
+        })
     } catch (error) {
         return res.status(500).json({
-            message: "Failed to update product",
+            message: "ERROR AL ACTUALIZAR EL PRODUCTO",
             error: error.message
-        });
+        })
     }
-};
+}
 
 export const incrementarInventario = async (req, res) => {
     try {
@@ -76,20 +76,20 @@ export const incrementarInventario = async (req, res) => {
         const product = await Product.findByIdAndUpdate(uid, { $inc: { stock: cantidad } }, { new: true });
         if (!product) {
             return res.status(404).json({
-                message: "Product not found"
-            });
+                message: "PRODUCTO NO ENCONTRADO"
+            })
         }
         return res.status(200).json({
-            message: "Inventory increased successfully",
+            message: "INVENTAARIO INCREMENTADO CORRECTAMENTE",
             product
-        });
+        })
     } catch (error) {
         return res.status(500).json({
-            message: "Failed to increase inventory",
+            message: "FALLO AL INCREMENTAR EL INVENTARIO",
             error: error.message
-        });
+        })
     }
-};
+}
 
 export const decrementarInventario = async (req, res) => {
     try {
@@ -98,20 +98,20 @@ export const decrementarInventario = async (req, res) => {
         const product = await Product.findByIdAndUpdate(uid, { $inc: { stock: -cantidad } }, { new: true });
         if (!product) {
             return res.status(404).json({
-                message: "Product not found"
-            });
+                message: "PRODUCTO NO ENCONTRADO"
+            })
         }
         return res.status(200).json({
-            message: "Inventory decreased successfully",
+            message: "INVENTAARIO DECREMENTADO CORRECTAMENTE",
             product
-        });
+        })
     } catch (error) {
         return res.status(500).json({
-            message: "Failed to decrease inventory",
+            message: "FALLO AL DECREMENTAR EL INVENTARIO",
             error: error.message
-        });
+        })
     }
-};
+}
 
 export const productosAgotados = async (req, res) => {
     try {
@@ -119,13 +119,13 @@ export const productosAgotados = async (req, res) => {
         return res.status(200).json(products);
     } catch (err) {
         return res.status(500).json({
-            message: "Failed to retrieve out of stock products",
+            message: "ERROR AL RECIBIR EL STOCK DE PRODUCTOS",
             error: err.message
-        });
+        })
     }
-};
+}
 
-export const obtenerProductosMasVendidos= async (req, res) => {
+export const obtenerProductosMasVendidos = async (req, res) => {
     try {
         const { limite, desde } = req.body;
 
@@ -138,13 +138,13 @@ export const obtenerProductosMasVendidos= async (req, res) => {
         res.status(200).json({
             total: products.length,
             products
-        });
+        })
 
     } catch (error) {
         res.status(500).json({
-            msg: 'Error retrieving most sold products',
+            msg: 'ERRO AL RECUPERAR LOS PRODUCTOS MAS VENDIDOS',
             error: error.message
-        });
+        })
     }
 }
 
