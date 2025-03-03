@@ -5,11 +5,10 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
-    products:[{
-        type: Schema.Types.ObjectId,
-        ref: "Product",
-        default: []
-    }],
+    categoryDescription:{
+        type: String,
+        required: true
+    },
     status:{
         type: Boolean,
         default: true

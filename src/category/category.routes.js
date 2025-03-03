@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { registrarMarca, añadirMarcasAProductos, eliminarCategoria, actualizarCategoria, visualizarCategorias } from "./category.controller.js";
-import { registrarMarcaValidador, añadirMarcasAProductosValidador, eliminarCategoriaValidador, actualizarCategoriaValidador } from "../middlewares/category-validator.js";
+import { registrarMarca, eliminarCategoria, editarCategorias, visualizarCategorias } from "./category.controller.js";
+import { registrarMarcaValidador, eliminarCategoriaValidador, actualizarCategoriaValidador } from "../middlewares/category-validator.js";
 
 const router = Router();
 
@@ -29,40 +29,6 @@ router.post(
     "/registrarMarca",
     registrarMarcaValidador,
     registrarMarca
-);
-
-/**
- * @swagger
- * /añadirCategoriaProducto/{uid}:
- *   post:
- *     summary: Añadir una categoría a un producto
- *     tags: [Categorías]
- *     parameters:
- *       - in: path
- *         name: uid
- *         schema:
- *           type: string
- *         required: true
- *         description: ID del producto
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               category:
- *                 type: string
- *     responses:
- *       200:
- *         description: Categoría añadida exitosamente
- *       500:
- *         description: Error al añadir la categoría
- */
-router.post(
-    "/añadirCategoriaProducto/:uid",
-    añadirMarcasAProductosValidador,
-    añadirMarcasAProductos
 );
 
 /**
@@ -101,7 +67,7 @@ router.get(
  *       500:
  *         description: Error al eliminar la categoría
  */
-router.patch(
+router.delete(
     "/eliminarCategoria/:uid",
     eliminarCategoriaValidador,
     eliminarCategoria
@@ -138,7 +104,7 @@ router.patch(
 router.patch(
     "/actualizarCategoria/:uid",
     actualizarCategoriaValidador,
-    actualizarCategoria
+    editarCategorias
 );
 
 export default router;
