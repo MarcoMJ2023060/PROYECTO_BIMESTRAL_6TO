@@ -1,4 +1,4 @@
-import { body } from "express-validator";
+import { body, param } from "express-validator";
 import { validarCampos } from "./validar-campos.js";
 import { productExists } from "../helpers/db-validators.js";
 import { handleErrors } from "./handle-errors.js";
