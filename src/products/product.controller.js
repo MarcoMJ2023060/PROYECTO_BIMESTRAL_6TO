@@ -37,7 +37,8 @@ export const obtenerProductos = async (req, res) => {
 
 export const obtenerCatalogo = async (req, res) => {
     try {
-        const products = await Product.find();
+        const query = { status: true }
+        const products = await Product.find(query);
         return res.status(200).json(products);
     } catch (err) {
         return res.status(500).json({
@@ -127,26 +128,31 @@ export const productosAgotados = async (req, res) => {
 
 export const obtenerProductosMasVendidos = async (req, res) => {
     try {
-        const { limite, desde } = req.body;
+        const { limite = 10, desde = 0 } = req.query;
 
-        // Obtener los productos más vendidos ordenados por cantidad de ventas
-        const products = await Product.find({ state: true })
-            .sort({ sales: -1 })
-            .skip(Number(desde))
-            .limit(Number(limite));
+        // Validar parámetros numéricos
+        if (isNaN(limite) || isNaN(desde)) {
+            return res.status(400).json({ msg: "limite y desde deben ser números" });
+        }
 
-        res.status(200).json({
-            total: products.length,
-            products
-        })
+        // Obtener productos ordenados por stock (menor a mayor)
+        const [total, products] = await Promise.all([
+            Product.countDocuments({ status: true }), // Total de productos activos
+            Product.find({ status: true })
+                .sort({ stock: 1 }) // 1 = ascendente (menor stock primero), -1 = descendente
+                .skip(Number(desde))
+                .limit(Number(limite))
+        ]);
+
+        res.status(200).json({ total, products });
 
     } catch (error) {
         res.status(500).json({
-            msg: 'ERRO AL RECUPERAR LOS PRODUCTOS MAS VENDIDOS',
+            msg: 'ERROR AL RECUPERAR LOS PRODUCTOS',
             error: error.message
-        })
+        });
     }
-}
+};
 
 export const eliminarProducto = async (req, res) => {
     try{
