@@ -17,83 +17,65 @@ export const registrarMarca = async(req,res) =>{
     }
 }
 
-export const añadirMarcasAProductos = async(req,res) =>{
+export const eliminarCategoria = async (req, res) => {
     try{
-        const { uid } = req.params
-        const productUid = req.body
+        const {uid} = req.params
 
-        const category = await Category.findById(uid)
-        const product = await Product.findById(productUid);
+        const categoryExists = await Category.findById(uid);
+        if (!categoryExists) {
+            return res.status(404).json({
+                success: false,
+                message: 'Category not found'
+            });
+        }
 
-        const addProduct = await Category.findByIdAndUpdate(category, {$push: {products: product}}, {new: true})        
-        await Product.findByIdAndUpdate(product, {$push: {category: category}}, {new: true})
+        await Category.findByIdAndDelete(uid)
 
-        return res.status(201).json({
-            message: "MARCA HA SIDO REGISTRADA",
-            addProduct
+        const categoryDefault = await Category.findOne({ name: "General" });
+        await Product.updateMany({ category: uid }, { category: categoryDefault._id });
+
+        return res.status(200).json({
+            sucess: true,
+            message: "Delete Category",
+            category: categoryExists
         })
-    }catch(err){
+
+    }catch(error){
         return res.status(500).json({
-            message: "FALLO EL REGISTRO DE LA MARCA",
-            error: err.message
+            success: false,
+            message: 'Error deleting category',
+            error: error.message
         })
     }
 }
 
-export const eliminarCategoria = async (req, res) => {
+export const categoryDefault = async (req, res) => {
+    const category = await Category.findOne({ name: "General" });
+        if (!category) {
+            await Category.create({
+                name: "General",
+                categoryDescription: "Esta categoría agrupa productos que no tienen una clasificación específica",});
+        }
+}
+
+export const editarCategorias = async (req, res) => {
     try {
-
         const { uid } = req.params;
-        const category = await Category.findById(uid);
-        const productIds = category.products;
-
+        const data = req.body;
+        const category = await Category.findByIdAndUpdate(uid, data, { new: true });
         if (!category) {
             return res.status(404).json({
-                message: "CATEGORIA NO ENCONTRADA" 
+                message: "PRODUCTO NO ENCONTRADO"
             })
         }
-
-        await Category.findByIdAndUpdate(uid, { status: false, products: [] }, { new: true });
-        await Product.updateMany({ category: uid },{ category: null });
-
-        return res.status(200).json({ 
-            message: "CATEGORIA ELIMINADA DE PRODUCTOS" 
-        });
-
-    } catch (err) {
-        return res.status(500).json({
-            message: "FALLO EN LA ELIMINACION DE LA CATEGORIA",
-            error: err.message
+        return res.status(200).json({
+            message: "PRODUCTO ACTUALIZADO CORRECTAMENTE",
+            product
         })
-    }
-}
-
-
-export const actualizarCategoria = async(req,res) => {
-    try{
-        const { uid } = req.params;
-        const data = req.body
-
-        const category = await Category.findById(uid)
-
-        if(!category){
-            return res.status(404).json({
-                message: "CATEGORIA NO EXISTE",
-                error: err.message
-            })
-        }
-
-        const updatedCategory = await Category.findByIdAndUpdate(uid, data, {new: true})
-        
-        return res.status(200).json({ 
-            message: "CATEGORIA ACTUALIZADA",
-            updatedCategory
-        })
-
-    }catch(err){
+    } catch (error) {
         return res.status(500).json({
-            message: "FALLO EN LA ACTUALIZACION DE LA CATEGORIA",
-            error: err.message
+            message: "ERROR AL ACTUALIZAR EL PRODUCTO",
+            error: error.message
         })
     }
 }
