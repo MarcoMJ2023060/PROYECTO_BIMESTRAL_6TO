@@ -70,7 +70,7 @@ export const editarCategorias = async (req, res) => {
         }
         return res.status(200).json({
             message: "PRODUCTO ACTUALIZADO CORRECTAMENTE",
-            product
+            category
         })
     } catch (error) {
         return res.status(500).json({
