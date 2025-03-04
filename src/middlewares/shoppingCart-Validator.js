@@ -1,7 +1,7 @@
 import {body, param} from "express-validator"
 import { validarCampos } from "./validar-campos.js"
 import { handleErrors } from "./handle-errors.js"
-import { codeExist } from "../helpers/db-validators.js"
+import { codeExist, shoppingCartExist } from "../helpers/db-validators.js"
 
 export const registrarCarritoCompraValidador = [
     body("user").not().isEmpty().withMessage("User is required").isMongoId().withMessage("This id is'nt valid"),
@@ -9,3 +9,9 @@ export const registrarCarritoCompraValidador = [
     validarCampos,
     handleErrors
 ];
+
+export const pagarCarritoValidador =[
+    param("uid").notEmpty().withMessage("The uid is required").custom(shoppingCartExist),
+    validarCampos,
+    handleErrors
+]
