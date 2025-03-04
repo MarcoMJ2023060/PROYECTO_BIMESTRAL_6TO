@@ -173,3 +173,32 @@ export const eliminarProducto = async (req, res) => {
         })
     }
 }
+
+export const buscarProductoPorNombre = async (req, res) => {
+    try {
+        const { limite = 10, desde = 0, name } = req.query;
+        
+        const query = { status: true };
+        if (name) {
+            query.name = name.toString();
+        }
+        const [total, products] = await Promise.all([
+            Product.countDocuments(query),
+            Product.find(query)
+                .skip(Number(desde))
+                .limit(Number(limite))
+        ])
+
+        return res.status(200).json({
+            success: true,
+            total,
+            products
+        })
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "ERROR AL OBTENER EL NOMBRE",
+            error: err.message
+        })
+    }
+}
