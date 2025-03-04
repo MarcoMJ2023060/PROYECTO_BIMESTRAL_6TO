@@ -26,6 +26,9 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
+    code:{
+        type: Number
+    },
     status:{
         type: Boolean,
         default: true
