@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67c78744ae434f6f5fc67544"
+  },
+  "products": [
+    1926
+  ],
+  "user": {
+    "$oid": "67c64ef337385057271957fc"
+  },
+  "total": 12000,
+  "status": "PAYED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c7e56a45c0bd322e25a9c5"
+  },
+  "products": [
+    1928
+  ],
+  "user": {
+    "$oid": "67c75c1a175f292374b2c525"
+  },
+  "total": 15000,
+  "status": "PAYED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8a732865cb336615b5d30"
+  },
+  "products": [
+    1930
+  ],
+  "user": {
+    "$oid": "67c75c1a175f292374b2c525"
+  },
+  "total": 7500,
+  "status": "PENDING",
+  "__v": 0
+}]
