@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { registrarMarca, eliminarCategoria, editarCategorias, visualizarCategorias } from "./category.controller.js";
-import { registrarMarcaValidador, eliminarCategoriaValidador, actualizarCategoriaValidador } from "../middlewares/category-validator.js";
+import { registrarMarcaValidador, eliminarCategoriaValidador, actualizarCategoriaValidador, visualizarCategoriasValidador } from "../middlewares/category-validator.js";
 
 const router = Router();
 
@@ -45,6 +45,7 @@ router.post(
  */
 router.get(
     "/visualizarCategorias",
+    visualizarCategoriasValidador,
     visualizarCategorias
 );
 
