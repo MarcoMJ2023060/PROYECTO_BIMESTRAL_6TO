@@ -23,3 +23,9 @@ export const editarCarritoValidador = [
     validarCampos,
     handleErrors
 ]
+
+export const eliminarCarritoValidador = [
+    param("uid").notEmpty().withMessage("The uid is required").custom(shoppingCartExist),
+    validarCampos,
+    handleErrors
+]
