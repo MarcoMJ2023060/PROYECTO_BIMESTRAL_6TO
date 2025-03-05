@@ -12,6 +12,16 @@
 				{
 					"name": "REGISTRAR USUARIOS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEwMDksImV4cCI6MTc0MTE1NDYwOX0.tpS4rrCRg4Nmgu1D0dKZ0IuTEh1f9_tROB1eqqCO7sk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -19,37 +29,37 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Juan",
+									"value": "Marco",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "jperez",
+									"value": "mbolanos",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "jperez@gmail.com",
+									"value": "mbolanos@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "surname",
-									"value": "Perez",
+									"value": "Bolanos",
 									"type": "text"
 								},
 								{
 									"key": "profilePicture",
 									"type": "file",
-									"src": "/C:/Users/MARCO/Pictures/9f11038263114b8d28b47dcca26d90aCURRY 2.jpg"
+									"src": "/C:/Users/MARCO/Pictures/AVATAR.PNG"
 								},
 								{
 									"key": "password",
-									"value": "Mypass2@",
+									"value": "Mypass3@",
 									"type": "text"
 								},
 								{
 									"key": "phone",
-									"value": "37996320",
+									"value": "37996321",
 									"type": "text"
 								},
 								{
@@ -81,13 +91,47 @@
 					"response": []
 				},
 				{
-					"name": "LOGIN ADMIN/CLIENTES",
+					"name": "LOGIN ADMIN",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/proyectoBimestral/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN CLIENTE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mbolanos@gmail.com\",\r\n    \"username\":\"mbolanos\",\r\n    \"password\":\"Mypass1@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -122,11 +166,21 @@
 				{
 					"name": "REGISTRAR MARCA",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEyNDksImV4cCI6MTc0MTE1NDg0OX0.YNpmoUtuK8HKQ4ibcJ2YHMHBy6mY_a-C4KNYxNRzeiY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Rolex\",\r\n    \"categoryDescription\":\"Relojes\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Rolex\",\r\n    \"categoryDescription\":\"WATCHES\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -153,6 +207,16 @@
 				{
 					"name": "VISUALIZAR CATEGORIAS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEyNDksImV4cCI6MTc0MTE1NDg0OX0.YNpmoUtuK8HKQ4ibcJ2YHMHBy6mY_a-C4KNYxNRzeiY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -175,11 +239,21 @@
 				{
 					"name": "EDITAR CATEGORIA",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEyNDksImV4cCI6MTc0MTE1NDg0OX0.YNpmoUtuK8HKQ4ibcJ2YHMHBy6mY_a-C4KNYxNRzeiY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Adidas\",\r\n    \"categoryDescription\":\"Camisas\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Tissot\",\r\n    \"categoryDescription\":\"WATCHES\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +261,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/category/actualizarCategoria/67c615658df5e3a367aecfda",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/category/actualizarCategoria/67c7e1f8abf3f84f971567f3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -198,7 +272,7 @@
 								"v1",
 								"category",
 								"actualizarCategoria",
-								"67c615658df5e3a367aecfda"
+								"67c7e1f8abf3f84f971567f3"
 							]
 						}
 					},
@@ -207,10 +281,20 @@
 				{
 					"name": "ELIMINAR CATEGORIA",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEyNDksImV4cCI6MTc0MTE1NDg0OX0.YNpmoUtuK8HKQ4ibcJ2YHMHBy6mY_a-C4KNYxNRzeiY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/category/eliminarCategoria/67c615458df5e3a367aecfd6",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/category/eliminarCategoria/67c7e1f8abf3f84f971567f3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -221,7 +305,7 @@
 								"v1",
 								"category",
 								"eliminarCategoria",
-								"67c615458df5e3a367aecfd6"
+								"67c7e1f8abf3f84f971567f3"
 							]
 						}
 					},
@@ -235,11 +319,21 @@
 				{
 					"name": "REGISTRAR PRODUCTOS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"iphone 15 pro max\",\r\n    \"description\":\"celular de apple de alta calidad\",\r\n    \"price\":\"12000\",\r\n    \"stock\":\"10\",\r\n    \"brand\":\"apple\",\r\n    \"category\":\"67c615458df5e3a367aecfd6\",\r\n    \"code\": 1926\r\n}",
+							"raw": "{\r\n    \"name\":\"iphone 16 pro max\",\r\n    \"description\":\"celular de apple mas reciente\",\r\n    \"price\":\"15000\",\r\n    \"stock\":\"5\",\r\n    \"brand\":\"apple\",\r\n    \"category\":\"67c615458df5e3a367aecfd6\",\r\n    \"code\": 1927\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -266,6 +360,16 @@
 				{
 					"name": "OBTENER UN PRODUCTO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -289,6 +393,16 @@
 				{
 					"name": "OBTENER CATALOGO PRODUCTOS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -311,11 +425,21 @@
 				{
 					"name": "ACTUALIZAR UN PRODUCTO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Adidas donovan Mitchell\",\r\n    \"description\":\"Zapatillas del jugador de la NBA\",\r\n    \"price\":\"2299\",\r\n    \"stock\":\"5\",\r\n    \"brand\":\"Adidas\"\r\n}",
+							"raw": "{\r\n    \"name\":\"iphone 16 pro max\",\r\n    \"description\":\"celular de apple mas reciente\",\r\n    \"price\":\"15000\",\r\n    \"stock\":\"5\",\r\n    \"brand\":\"apple\",\r\n    \"code\": 1928\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -323,7 +447,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c63c9e71534e8131de3c8d",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c7c5a52a76c59a547504d4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -334,7 +458,7 @@
 								"v1",
 								"products",
 								"producto",
-								"67c63c9e71534e8131de3c8d"
+								"67c7c5a52a76c59a547504d4"
 							]
 						}
 					},
@@ -343,11 +467,21 @@
 				{
 					"name": "INCREMENTAR INVENTARIO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"cantidad\":\"20\"\r\n}",
+							"raw": "{\r\n    \"cantidad\":\"10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -355,7 +489,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c61926d2445a9975910178/incrementarInventario",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c7c5a52a76c59a547504d4/incrementarInventario",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -366,7 +500,7 @@
 								"v1",
 								"products",
 								"producto",
-								"67c61926d2445a9975910178",
+								"67c7c5a52a76c59a547504d4",
 								"incrementarInventario"
 							]
 						}
@@ -376,11 +510,21 @@
 				{
 					"name": "DECREMENTAR INVENTARIO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"cantidad\":\"20\"\r\n}",
+							"raw": "{\r\n    \"cantidad\":\"10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -388,7 +532,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c63c9e71534e8131de3c8d/decrementarInventario",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c7c5a52a76c59a547504d4/decrementarInventario",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -399,7 +543,7 @@
 								"v1",
 								"products",
 								"producto",
-								"67c63c9e71534e8131de3c8d",
+								"67c7c5a52a76c59a547504d4",
 								"decrementarInventario"
 							]
 						}
@@ -412,6 +556,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -443,6 +597,16 @@
 				{
 					"name": "PRODUCTOS MAS VENDIDOS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -465,10 +629,20 @@
 				{
 					"name": "ELIMINAR PRODUCTO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/products/eliminarProducto/67c61926d2445a9975910178",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/eliminarProducto/67c78423c9baa76a35ff44fa",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -479,7 +653,7 @@
 								"v1",
 								"products",
 								"eliminarProducto",
-								"67c61926d2445a9975910178"
+								"67c78423c9baa76a35ff44fa"
 							]
 						}
 					},
@@ -488,6 +662,16 @@
 				{
 					"name": "PRODUCTO POR NOMBRE",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDUzODgsImV4cCI6MTc0MTE0ODk4OH0.MyHAVBN8SbtajjZRW12mqKYrruqRGsi_watbRHhfiiE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -525,6 +709,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "PRODUCTO POR CATEGORIA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNDk5MzIsImV4cCI6MTc0MTE1MzUzMn0.fQDbEaPpSNJCNAYaON2bU-E8PLJYg0huE5QbaXBN6t8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/buscarProductoPorCategoria?category=67c615458df5e3a367aecfd6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"buscarProductoPorCategoria"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "67c615458df5e3a367aecfd6"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -534,6 +756,16 @@
 				{
 					"name": "BUSCAR USUARIO POR ID/INDIVIDUAL",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEyNDksImV4cCI6MTc0MTE1NDg0OX0.YNpmoUtuK8HKQ4ibcJ2YHMHBy6mY_a-C4KNYxNRzeiY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -557,6 +789,16 @@
 				{
 					"name": "LISTADO USUARIOS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NWI3NjE3NWYyOTIzNzRiMmM1MTYiLCJpYXQiOjE3NDExNTEyNDksImV4cCI6MTc0MTE1NDg0OX0.YNpmoUtuK8HKQ4ibcJ2YHMHBy6mY_a-C4KNYxNRzeiY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -579,10 +821,20 @@
 				{
 					"name": "ELIMINAR USUARIOS",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTEyNDEsImV4cCI6MTc0MTE1NDg0MX0.eN-DdLxJE3a7qQ5G1vkGuRxwl94qNDVAgZg0G9RgBE4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/user/deleteUser/67c64e6337385057271957f8",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/deleteUser/67c64ef337385057271957fc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -593,7 +845,7 @@
 								"v1",
 								"user",
 								"deleteUser",
-								"67c64e6337385057271957f8"
+								"67c64ef337385057271957fc"
 							]
 						}
 					},
@@ -602,11 +854,21 @@
 				{
 					"name": "ACTUALIZAR CONTRASEÑA USUARIO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTEyNDEsImV4cCI6MTc0MTE1NDg0MX0.eN-DdLxJE3a7qQ5G1vkGuRxwl94qNDVAgZg0G9RgBE4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"newPassword\":\"Mypass3@\"\r\n}",
+							"raw": "{\r\n    \"newPassword\":\"Mypass1@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -614,7 +876,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/user/updatePassword/67c64ef337385057271957fc",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/updatePassword/67c7db8f43d4e992ee97ea1c",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -625,7 +887,7 @@
 								"v1",
 								"user",
 								"updatePassword",
-								"67c64ef337385057271957fc"
+								"67c7db8f43d4e992ee97ea1c"
 							]
 						}
 					},
@@ -634,11 +896,21 @@
 				{
 					"name": "ACTUALIZAR USUARIO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTE3ODYsImV4cCI6MTc0MTE1NTM4Nn0.Dy4DtnvJTMzK6C_NGvDXYCggMvdhjOjY_9riwoejUWE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Juann\",\r\n    \"surname\":\"Perezz\",\r\n    \"username\":\"jperezz3\",\r\n    \"email\":\"jperezz3@gmail.com\",\r\n    \"phone\":\"37996321\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Juanito\",\r\n    \"surname\":\"Perezito\",\r\n    \"username\":\"jperezito\",\r\n    \"email\":\"jperezito@gmail.com\",\r\n    \"phone\":\"37996322\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -646,7 +918,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/user/updateUser/67c64ef337385057271957fc",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/updateUser/67c75c1a175f292374b2c525",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -657,7 +929,7 @@
 								"v1",
 								"user",
 								"updateUser",
-								"67c64ef337385057271957fc"
+								"67c75c1a175f292374b2c525"
 							]
 						}
 					},
@@ -666,6 +938,16 @@
 				{
 					"name": "ACTUALIZAR FOTO PERFIL/ID",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTE3ODYsImV4cCI6MTc0MTE1NTM4Nn0.Dy4DtnvJTMzK6C_NGvDXYCggMvdhjOjY_9riwoejUWE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
@@ -674,12 +956,12 @@
 								{
 									"key": "profilePicture",
 									"type": "file",
-									"src": "/C:/Users/MARCO/Pictures/Apex-Legends 2.jpg"
+									"src": "/C:/Users/MARCO/Pictures/Apex-Legends.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/user/actualizarFotoPerfil/67c64ef337385057271957fc",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/actualizarFotoPerfil/67c75c1a175f292374b2c525",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -690,7 +972,7 @@
 								"v1",
 								"user",
 								"actualizarFotoPerfil",
-								"67c64ef337385057271957fc"
+								"67c75c1a175f292374b2c525"
 							]
 						}
 					},
@@ -704,11 +986,21 @@
 				{
 					"name": "CREAR CARRITO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTE3ODYsImV4cCI6MTc0MTE1NTM4Nn0.Dy4DtnvJTMzK6C_NGvDXYCggMvdhjOjY_9riwoejUWE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"products\":[1926],\r\n    \"user\":\"67c64ef337385057271957fc\"\r\n}",
+							"raw": "{\r\n    \"products\":[1928],\r\n    \"user\":\"67c75c1a175f292374b2c525\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -735,10 +1027,20 @@
 				{
 					"name": "PAGAR CARRITO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTE3ODYsImV4cCI6MTc0MTE1NTM4Nn0.Dy4DtnvJTMzK6C_NGvDXYCggMvdhjOjY_9riwoejUWE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/pagarCarrito/67c78744ae434f6f5fc67544",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/pagarCarrito/67c7e56a45c0bd322e25a9c5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -749,7 +1051,7 @@
 								"v1",
 								"shoppingCart",
 								"pagarCarrito",
-								"67c78744ae434f6f5fc67544"
+								"67c7e56a45c0bd322e25a9c5"
 							]
 						}
 					},
@@ -758,6 +1060,16 @@
 				{
 					"name": "ACTUALIZAR CARRITO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTE3ODYsImV4cCI6MTc0MTE1NTM4Nn0.Dy4DtnvJTMzK6C_NGvDXYCggMvdhjOjY_9riwoejUWE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
@@ -770,7 +1082,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/editarCarrito/67c786ca16652b448ba62216",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/editarCarrito/67c7e54245c0bd322e25a9c0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -781,7 +1093,7 @@
 								"v1",
 								"shoppingCart",
 								"editarCarrito",
-								"67c786ca16652b448ba62216"
+								"67c7e54245c0bd322e25a9c0"
 							]
 						}
 					},
@@ -790,10 +1102,20 @@
 				{
 					"name": "ELIMINAR CARRITO",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZGI4ZjQzZDRlOTkyZWU5N2VhMWMiLCJpYXQiOjE3NDExNTE3ODYsImV4cCI6MTc0MTE1NTM4Nn0.Dy4DtnvJTMzK6C_NGvDXYCggMvdhjOjY_9riwoejUWE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/eliminarCarrito/67c786ca16652b448ba62216",
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/eliminarCarrito/67c7e54245c0bd322e25a9c0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -804,7 +1126,7 @@
 								"v1",
 								"shoppingCart",
 								"eliminarCarrito",
-								"67c786ca16652b448ba62216"
+								"67c7e54245c0bd322e25a9c0"
 							]
 						}
 					},
