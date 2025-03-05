@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "67c6155e8df5e3a367aecfd8"
+  },
+  "name": "New balance",
+  "categoryDescription": "tenis",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c615658df5e3a367aecfda"
+  },
+  "name": "Adidas",
+  "categoryDescription": "Camisas",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c6156c8df5e3a367aecfdc"
+  },
+  "name": "New Balance",
+  "categoryDescription": "Deportivo",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "name": "General",
+  "categoryDescription": "Esta categoría agrupa productos que no tienen una clasificación específica",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c6521caa1eb41593c21bd9"
+  },
+  "name": "Dolce Gabana",
+  "categoryDescription": "Joyas",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c791583691a1b18aec8fd8"
+  },
+  "name": "Rolex",
+  "categoryDescription": "Relojes",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8a638865cb336615b5d26"
+  },
+  "name": "RoLEX",
+  "categoryDescription": "WATCHES",
+  "status": true,
+  "__v": 0
+}]
