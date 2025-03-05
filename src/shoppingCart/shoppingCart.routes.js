@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { pagarCarrito, registrarCarritoCompra } from "./shoppingCart.controller.js";
-import { pagarCarritoValidador, registrarCarritoCompraValidador } from "../middlewares/shoppingCart-Validator.js";
+import { editarCarrito, pagarCarrito, registrarCarritoCompra } from "./shoppingCart.controller.js";
+import { editarCarritoValidador, pagarCarritoValidador, registrarCarritoCompraValidador } from "../middlewares/shoppingCart-Validator.js";
 
 const router = Router();
 
@@ -16,4 +16,9 @@ router.patch(
     pagarCarrito
 )
 
+router.patch(
+    "/editarCarrito/:uid",
+    editarCarritoValidador,
+    editarCarrito
+)
 export default router;

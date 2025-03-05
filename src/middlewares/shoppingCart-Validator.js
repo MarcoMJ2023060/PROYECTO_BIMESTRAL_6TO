@@ -15,3 +15,11 @@ export const pagarCarritoValidador =[
     validarCampos,
     handleErrors
 ]
+
+export const editarCarritoValidador = [
+    param("uid").notEmpty().withMessage("The uid is required").custom(shoppingCartExist),
+    body("addProduct").optional().custom(codeExist),
+    body("deleteProduct").optional().custom(codeExist),
+    validarCampos,
+    handleErrors
+]

@@ -55,3 +55,45 @@ export const pagarCarrito = async(req,res) =>{
         })
     }
 }
+
+export const editarCarrito = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const { addProduct, deleteProduct } = req.body;
+
+        const cart = await ShoppingCart.findById(uid);
+
+        if (!cart) {
+            return res.status(404).json({ message: "Cart not found" });
+        }
+
+        if (addProduct) {
+            cart.products.push(...(Array.isArray(addProduct) ? addProduct : [addProduct]));
+        }
+
+        if (deleteProduct) {
+            const deleteArray = Array.isArray(deleteProduct) ? deleteProduct : [deleteProduct];
+
+            for (const product of deleteArray) {
+                const index = cart.products.indexOf(product);
+                if (index !== -1) {
+                    cart.products.splice(index, 1);
+                }
+            }
+        }
+
+        await cart.save();
+
+        return res.status(201).json({
+            message: "Buy cart updated successfully",
+            cart
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            message: "Buy cart edition failed",
+            error: error.message
+        });
+    }
+};
+
