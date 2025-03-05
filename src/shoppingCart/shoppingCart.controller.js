@@ -97,3 +97,20 @@ export const editarCarrito = async (req, res) => {
     }
 };
 
+export const eliminarCarrito = async(req,res) => {
+    try{
+        const {uid} = req.params
+
+        const cart = await ShoppingCart.findByIdAndDelete(uid)
+
+        return res.status(201).json({
+            message: "Buy cart deleted successfully"
+        })
+
+    }catch(error){
+        return res.status(500).json({
+            message: "Buy cart deletion failed",
+            error: error.message
+        })
+    }
+}
