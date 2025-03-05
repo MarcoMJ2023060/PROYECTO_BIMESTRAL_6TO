@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getUserById, getUsers, deleteUser, updatePassword, updateUser, actualizarFotoPerfil } from "./user.controller.js";
-import { getUserByIdValidator, deleteUserValidator, updatePasswordValidator, updateUserValidator, actualizarFotoPerfilValidator } from "../middlewares/user-validators.js";
+import { getUserByIdValidator, deleteUserValidator, updatePasswordValidator, updateUserValidator, actualizarFotoPerfilValidator, getUsersValidator } from "../middlewares/user-validators.js";
 import { uploadProfilePicture } from "../middlewares/multer-uploads.js";
 
 const router = Router();
@@ -40,7 +40,7 @@ router.get("/findUser/:uid", getUserByIdValidator, getUserById);
  *       500:
  *         description: Error al obtener los usuarios
  */
-router.get("/", getUsers);
+router.get("/", getUsersValidator, getUsers);
 
 /**
  * @swagger

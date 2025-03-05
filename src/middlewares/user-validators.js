@@ -3,8 +3,12 @@ import { emailExists, usernameExists, userExists } from "../helpers/db-validator
 import { validarCampos } from "./validar-campos.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
+import { validateJWT } from "./validate-jwt.js";
+import { hasRoles } from "./validate-roles.js";
 
 export const registerValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("username").notEmpty().withMessage("El username es requerido"),
     body("email").notEmpty().withMessage("El email es requerido"),
@@ -32,6 +36,8 @@ export const loginValidator = [
 ]
 
 export const getUserByIdValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(userExists),
     validarCampos,
@@ -39,6 +45,8 @@ export const getUserByIdValidator = [
 ]
 
 export const deleteUserValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(userExists),
     validarCampos,
@@ -46,6 +54,8 @@ export const deleteUserValidator = [
 ]
 
 export const updatePasswordValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(userExists),
     body("newPassword").isLength({min: 8}).withMessage("El password debe contener al menos 8 caracteres"),
@@ -54,6 +64,8 @@ export const updatePasswordValidator = [
 ]
 
 export const updateUserValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE"),
     param("uid", "No es un ID válido").isMongoId(),
     param("uid").custom(userExists),
     validarCampos,
@@ -61,6 +73,8 @@ export const updateUserValidator = [
 ]
 
 export const actualizarFotoPerfilValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE"),
     param("uid").isMongoId().withMessage("NO ES UN ID VALIDO DE MONGO"),
     param("uid").custom(userExists),
     validarCampos,
@@ -68,4 +82,7 @@ export const actualizarFotoPerfilValidator = [
     handleErrors
 ]
 
-
+export const getUsersValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+]
