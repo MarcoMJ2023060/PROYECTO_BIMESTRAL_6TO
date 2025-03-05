@@ -69,7 +69,7 @@ export const buscarProductoPorNombreValidador = [
 
 export const obtenerCatalogoValidador = [
     validateJWT,
-    hasRoles("ADMIN_ROLE")
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE")
 ]
 
 export const obtenerProductosValidador = [
