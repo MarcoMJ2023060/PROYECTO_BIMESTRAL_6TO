@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { registrarProductos, obtenerProductos, obtenerCatalogo, editarProductos, incrementarInventario, decrementarInventario, productosAgotados, obtenerProductosMasVendidos, eliminarProducto, buscarProductoPorNombre } from "./product.controller.js";
-import { registrarProductosValidador, editarProductoValidador, incrementarInventarioValidador, decrementarInventarioValidador, productosAgotadosValidador, eliminarProductoValidador } from "../middlewares/product-validator.js";
+import { registrarProductosValidador, editarProductoValidador, incrementarInventarioValidador, decrementarInventarioValidador, productosAgotadosValidador, eliminarProductoValidador, obtenerProductosMasVendidosValidador, buscarProductoPorNombreValidador, obtenerCatalogoValidador, obtenerProductosValidador } from "../middlewares/product-validator.js";
 
 const router = Router();
 
@@ -62,6 +62,7 @@ router.post(
  */
 router.get(
     "/producto/:uid", 
+    obtenerProductosValidador,
     obtenerProductos
 );
 
@@ -79,6 +80,7 @@ router.get(
  */
 router.get(
     "/catalogo", 
+    obtenerCatalogoValidador,
     obtenerCatalogo
 );
 
@@ -230,6 +232,7 @@ router.get(
  */
 router.get(
     "/productosMasVendidos",
+    obtenerProductosMasVendidosValidador,
     obtenerProductosMasVendidos
 );
 
@@ -260,6 +263,7 @@ router.delete(
 
 router.get(
     "/buscarProductoPorNombre",
+    buscarProductoPorNombreValidador,
     buscarProductoPorNombre
 )
 

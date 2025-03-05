@@ -56,3 +56,23 @@ export const eliminarProductoValidador = [
     validarCampos,
     handleErrors
 ]
+
+export const obtenerProductosMasVendidosValidador = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE")
+]
+
+export const buscarProductoPorNombreValidador = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE")
+]
+
+export const obtenerCatalogoValidador = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE")
+]
+
+export const obtenerProductosValidador = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE")
+]
