@@ -1,0 +1,169 @@
+[{
+  "_id": {
+    "$oid": "67c61926d2445a9975910178"
+  },
+  "name": "Adidas donovan Mitchell",
+  "description": "Zapatillas del jugador de la NBA",
+  "price": 2299,
+  "stock": 0,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "Adidas",
+  "status": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c63c9e71534e8131de3c8d"
+  },
+  "name": "Adidas donovan Mitchell",
+  "description": "Zapatillas del jugador de la NBA",
+  "price": 2299,
+  "stock": 5,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "Adidas",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c640b7bf709559b93c8e13"
+  },
+  "name": "Air jordan 2",
+  "description": "zapatillas clasicas air jordan",
+  "price": 1899,
+  "stock": 25,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "Nike",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c6548a26eb1d9d00ee03d5"
+  },
+  "name": "Air jordan 3",
+  "description": "zapatillas clasicas air jordan",
+  "price": 1899,
+  "stock": 10,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "Nike",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c7838dc9baa76a35ff44f6"
+  },
+  "name": "iphone 15 pro max",
+  "description": "celular de apple de alta calidad",
+  "price": 12000,
+  "stock": 10,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "apple",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c78401c9baa76a35ff44f8"
+  },
+  "name": "iphone 15 pro max",
+  "description": "celular de apple de alta calidad",
+  "price": 12000,
+  "stock": 10,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "apple",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c78423c9baa76a35ff44fa"
+  },
+  "name": "iphone 15 pro max",
+  "description": "celular de apple de alta calidad",
+  "price": 12000,
+  "stock": 10,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "apple",
+  "status": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c786996d2e6940e91b02a3"
+  },
+  "name": "iphone 15 pro max",
+  "description": "celular de apple de alta calidad",
+  "price": 12000,
+  "stock": 9,
+  "category": {
+    "$oid": "67c64e5a3f9c1d19c6de2acf"
+  },
+  "brand": "apple",
+  "code": 1926,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c7c57a2a76c59a547504d1"
+  },
+  "name": "iphone 16 pro max",
+  "description": "celular de apple mas reciente",
+  "price": 15000,
+  "stock": 5,
+  "category": {
+    "$oid": "67c615458df5e3a367aecfd6"
+  },
+  "brand": "apple",
+  "code": 1927,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c7c5a52a76c59a547504d4"
+  },
+  "name": "iphone 16 pro max",
+  "description": "celular de apple mas reciente",
+  "price": 15000,
+  "stock": 4,
+  "category": {
+    "$oid": "67c615458df5e3a367aecfd6"
+  },
+  "brand": "apple",
+  "code": 1928,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8a6e2865cb336615b5d29"
+  },
+  "name": "PLAYSTATION 5 slim",
+  "description": "Consola desarrollado por sony interactive entertaintment",
+  "price": 7500,
+  "stock": 50,
+  "category": {
+    "$oid": "67c615458df5e3a367aecfd6"
+  },
+  "brand": "Sony",
+  "code": 1930,
+  "status": true,
+  "__v": 0
+}]
