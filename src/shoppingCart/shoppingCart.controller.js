@@ -1,4 +1,5 @@
-import ShoppingCart, { shoppingCart } from "../shoppingCart/shoppingCart.model.js"
+import ShoppingCart from "../shoppingCart/shoppingCart.model.js"
+import { generarFactura } from "../middlewares/bill-generate.js"
 import Product from "../products/product.model.js"
 import User from "../user/user.model.js"
 
@@ -42,6 +43,8 @@ export const pagarCarrito = async(req,res) =>{
 
         await ShoppingCart.findByIdAndUpdate(uid,{status: "PAYED"})
         await User.findByIdAndUpdate(cart.user, {$push: {history: uid}})
+
+        await generarFactura(cart.products, cart.total, cart.user);
 
         return res.status(201).json({
             message: "Thank you for your purchase, come back soon!",   
