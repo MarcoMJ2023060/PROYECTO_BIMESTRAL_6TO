@@ -1,0 +1,816 @@
+{
+	"info": {
+		"_postman_id": "75af312a-acf8-4000-bacf-e1955488d2db",
+		"name": "proyectoBimestral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42000110"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "REGISTRAR USUARIOS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "jperez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jperez@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Perez",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/MARCO/Pictures/9f11038263114b8d28b47dcca26d90aCURRY 2.jpg"
+								},
+								{
+									"key": "password",
+									"value": "Mypass2@",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "37996320",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/proyectoBimestral/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN ADMIN/CLIENTES",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/proyectoBimestral/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categorias",
+			"item": [
+				{
+					"name": "REGISTRAR MARCA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Rolex\",\r\n    \"categoryDescription\":\"Relojes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/category/registrarMarca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"category",
+								"registrarMarca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VISUALIZAR CATEGORIAS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/category/visualizarCategorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"category",
+								"visualizarCategorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDITAR CATEGORIA",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Adidas\",\r\n    \"categoryDescription\":\"Camisas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/category/actualizarCategoria/67c615658df5e3a367aecfda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"category",
+								"actualizarCategoria",
+								"67c615658df5e3a367aecfda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR CATEGORIA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/category/eliminarCategoria/67c615458df5e3a367aecfd6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"category",
+								"eliminarCategoria",
+								"67c615458df5e3a367aecfd6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "REGISTRAR PRODUCTOS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"iphone 15 pro max\",\r\n    \"description\":\"celular de apple de alta calidad\",\r\n    \"price\":\"12000\",\r\n    \"stock\":\"10\",\r\n    \"brand\":\"apple\",\r\n    \"category\":\"67c615458df5e3a367aecfd6\",\r\n    \"code\": 1926\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/registrarProductos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"registrarProductos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OBTENER UN PRODUCTO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c640b7bf709559b93c8e13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"producto",
+								"67c640b7bf709559b93c8e13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OBTENER CATALOGO PRODUCTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/catalogo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"catalogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR UN PRODUCTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Adidas donovan Mitchell\",\r\n    \"description\":\"Zapatillas del jugador de la NBA\",\r\n    \"price\":\"2299\",\r\n    \"stock\":\"5\",\r\n    \"brand\":\"Adidas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c63c9e71534e8131de3c8d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"producto",
+								"67c63c9e71534e8131de3c8d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INCREMENTAR INVENTARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\":\"20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c61926d2445a9975910178/incrementarInventario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"producto",
+								"67c61926d2445a9975910178",
+								"incrementarInventario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DECREMENTAR INVENTARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\":\"20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/producto/67c63c9e71534e8131de3c8d/decrementarInventario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"producto",
+								"67c63c9e71534e8131de3c8d",
+								"decrementarInventario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTOS AGOTADOS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\":\"0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/productosAgotados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"productosAgotados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTOS MAS VENDIDOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/productosMasVendidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"productosMasVendidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR PRODUCTO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/products/eliminarProducto/67c61926d2445a9975910178",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"eliminarProducto",
+								"67c61926d2445a9975910178"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTO POR NOMBRE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/proyectoBimestral/v1/products/buscarProductoPorNombre?name=Air jordan 2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"products",
+								"buscarProductoPorNombre"
+							],
+							"query": [
+								{
+									"key": "desde",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "hasta",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Air jordan 2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "BUSCAR USUARIO POR ID/INDIVIDUAL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/findUser/67c64ef337385057271957fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"user",
+								"findUser",
+								"67c64ef337385057271957fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTADO USUARIOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR USUARIOS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/deleteUser/67c64e6337385057271957f8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"user",
+								"deleteUser",
+								"67c64e6337385057271957f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR CONTRASEÑA USUARIO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"Mypass3@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/updatePassword/67c64ef337385057271957fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"user",
+								"updatePassword",
+								"67c64ef337385057271957fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR USUARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Juann\",\r\n    \"surname\":\"Perezz\",\r\n    \"username\":\"jperezz3\",\r\n    \"email\":\"jperezz3@gmail.com\",\r\n    \"phone\":\"37996321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/updateUser/67c64ef337385057271957fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"user",
+								"updateUser",
+								"67c64ef337385057271957fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR FOTO PERFIL/ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/MARCO/Pictures/Apex-Legends 2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/user/actualizarFotoPerfil/67c64ef337385057271957fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"user",
+								"actualizarFotoPerfil",
+								"67c64ef337385057271957fc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carritoCompra",
+			"item": [
+				{
+					"name": "CREAR CARRITO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\":[1926],\r\n    \"user\":\"67c64ef337385057271957fc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/registrarCarritoCompra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"shoppingCart",
+								"registrarCarritoCompra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PAGAR CARRITO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/pagarCarrito/67c78744ae434f6f5fc67544",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"shoppingCart",
+								"pagarCarrito",
+								"67c78744ae434f6f5fc67544"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR CARRITO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deleteProduct\":[1926],\r\n    \"addproduct\":[1920]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/editarCarrito/67c786ca16652b448ba62216",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"shoppingCart",
+								"editarCarrito",
+								"67c786ca16652b448ba62216"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR CARRITO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proyectoBimestral/v1/shoppingCart/eliminarCarrito/67c786ca16652b448ba62216",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proyectoBimestral",
+								"v1",
+								"shoppingCart",
+								"eliminarCarrito",
+								"67c786ca16652b448ba62216"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
