@@ -37,6 +37,34 @@
     "$oid": "67c75c1a175f292374b2c525"
   },
   "total": 7500,
+  "status": "PAYED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8d8baf9d5aff60f4fa4cd"
+  },
+  "products": [
+    1928
+  ],
+  "user": {
+    "$oid": "67c7db8f43d4e992ee97ea1c"
+  },
+  "total": 15000,
+  "status": "PAYED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8da4ef9d5aff60f4fa4dc"
+  },
+  "products": [
+    1926
+  ],
+  "user": {
+    "$oid": "67c7db8f43d4e992ee97ea1c"
+  },
+  "total": 12000,
   "status": "PENDING",
   "__v": 0
 }]
