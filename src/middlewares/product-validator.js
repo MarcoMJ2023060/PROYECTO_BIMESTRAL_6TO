@@ -76,3 +76,8 @@ export const obtenerProductosValidador = [
     validateJWT,
     hasRoles("ADMIN_ROLE")
 ]
+
+export const buscarProductoPorCategoriaValidador = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE")
+]

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { registrarProductos, obtenerProductos, obtenerCatalogo, editarProductos, incrementarInventario, decrementarInventario, productosAgotados, obtenerProductosMasVendidos, eliminarProducto, buscarProductoPorNombre } from "./product.controller.js";
-import { registrarProductosValidador, editarProductoValidador, incrementarInventarioValidador, decrementarInventarioValidador, productosAgotadosValidador, eliminarProductoValidador, obtenerProductosMasVendidosValidador, buscarProductoPorNombreValidador, obtenerCatalogoValidador, obtenerProductosValidador } from "../middlewares/product-validator.js";
+import { registrarProductos, obtenerProductos, obtenerCatalogo, editarProductos, incrementarInventario, decrementarInventario, productosAgotados, obtenerProductosMasVendidos, eliminarProducto, buscarProductoPorNombre, buscarProductoPorCategoria } from "./product.controller.js";
+import { registrarProductosValidador, editarProductoValidador, incrementarInventarioValidador, decrementarInventarioValidador, productosAgotadosValidador, eliminarProductoValidador, obtenerProductosMasVendidosValidador, buscarProductoPorNombreValidador, obtenerCatalogoValidador, obtenerProductosValidador, buscarProductoPorCategoriaValidador } from "../middlewares/product-validator.js";
 
 const router = Router();
 
@@ -265,6 +265,12 @@ router.get(
     "/buscarProductoPorNombre",
     buscarProductoPorNombreValidador,
     buscarProductoPorNombre
+)
+
+router.get(
+    "/buscarProductoPorCategoria",
+    buscarProductoPorCategoriaValidador,
+    buscarProductoPorCategoria
 )
 
 export default router;
