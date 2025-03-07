@@ -149,3 +149,18 @@ Sigue estos pasos para configurar el proyecto localmente:
 - 👀 **VISUALIZAR CATEGORIAS** 👀
 - **URL:** `/proyectoBimestral/v1/category/visualizarCategorias`
 - **METODO:** 🟢`GET`🟢
+
+- ✏️ **EDITAR CATEGORIA** ✏️
+- **URL:** `/proyectoBimestral/v1/category/actualizarCategoria/:uid`
+- **METODO:** 🟣`PATCH`🟣
+- **Cuerpo:**
+    ```json
+    {
+    "name":"string",
+    "categoryDescription":"string"
+    }
+    ```
+
+- ⛔ **ELIMINAR CATEGORIA** ⛔
+- **URL:** `/proyectoBimestral/v1/category/eliminarCategoria/:uid`
+- **METODO:** 🔴`DELETE`🔴
