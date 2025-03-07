@@ -283,8 +283,8 @@ Sigue estos pasos para configurar el proyecto localmente:
     "addproduct":[numero]
     }
     ```
-    - **DELETEPRODUCT:RECIBE EL CODIGO YA REGISTRADO EN EL CARRITO DE COMPRA**
-    - **ADDPRODUCT: RECIBE EL NUEVO CODIGO QUE LE ACTUALIZARA AL CARRITO**
+- **DELETEPRODUCT:RECIBE EL CODIGO YA REGISTRADO EN EL CARRITO DE COMPRA**
+- **ADDPRODUCT: RECIBE EL NUEVO CODIGO QUE LE ACTUALIZARA AL CARRITO**
  
 -  ⛔ **ELIMINAR CARRITO** ⛔
 - **URL:** `/proyectoBimestral/v1/shoppingCart/eliminarCarrito/:uid`
