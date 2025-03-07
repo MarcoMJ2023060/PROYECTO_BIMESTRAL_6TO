@@ -113,8 +113,7 @@ Sigue estos pasos para configurar el proyecto localmente:
     "newPassword":"string" 
     }
 - **CONTRASEÑA MINIMO 8 CARACTERES/ 1 MAYUSCULA, 1 NUMERO, 1 CARACTER ESPECIAL**
-    ```
-
+    
 - 🔄 **ACTUALIZAR USUARIO** 🔄
 - **URL:** `/proyectoBimestral/v1/user/updateUser/:uid`
 - **METODO:** 🔵`PUT`🔵
