@@ -323,3 +323,14 @@ Sigue estos pasos para configurar el proyecto localmente:
 - **ENCONTRARÁS  validateJWT**
 - **Y SI EL ENDPOINT ES DE LOS 2 ROLES SALDRA "hasRoles("ADMIN_ROLE", "CLIENT_ROLE")"**
 - **ESTO SIGNIFICA QUE SOLO ADMIN Y CLIENTES PUEDEN EJECUTAR DICHOS ENDPOINTS**
+
+ ## 📬 Contacto 📬
+  Si necesitas ayuda o tienes alguna pregunta sobre el proyecto, no dudes en contactarnos:
+
+  - 👨🏻‍💼 **Desarrollador principal**: 👨🏻‍💼  
+ [MARCO](https://github.com/MarcoMJ2023060)
+
+## 📱 **Redes Sociales**: 📱
+- **📍 Sígueme**
+╰┈➤ [𝕏 Twitter](https://twitter.com/pg16_16_)  
+╰┈➤ [📸 Instagram](https://instagram.com/pg16_16_)  
