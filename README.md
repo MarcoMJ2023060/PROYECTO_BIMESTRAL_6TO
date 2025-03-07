@@ -164,3 +164,130 @@ Sigue estos pasos para configurar el proyecto localmente:
 - ⛔ **ELIMINAR CATEGORIA** ⛔
 - **URL:** `/proyectoBimestral/v1/category/eliminarCategoria/:uid`
 - **METODO:** 🔴`DELETE`🔴
+
+## 📦 MODULO PRODUCTOS 📦
+- 📑 **REGISTRAR PRODUCTOS** 📑
+- **URL:** `/proyectoBimestral/v1/products/registrarProductos`
+- **METODO:** 🟡`POST`🟡
+- **Cuerpo:**
+    ```json
+    {
+    "name":"string",
+    "description":"string",
+    "price":"numero",
+    "stock":"numero",
+    "brand":"string",
+    "category":"string",
+    "code": numero
+    }
+    ```
+- ↩️**OBTENER UN PRODUCTO**↩️
+- **URL:** `/proyectoBimestral/v1/products/producto/:uid`
+- **METODO:** 🟢`GET`🟢
+
+-  ↩️**OBTENER CATALOGO PRODUCTOS**↩️
+- **URL:** `/proyectoBimestral/v1/products/catalogo`
+- **METODO:** 🟢`GET`🟢
+
+- 🔄 **ACTUALIZAR UN PRODUCTO** 🔄
+- **URL:** `/proyectoBimestral/v1/products/producto/:uid`
+- **METODO:** 🔵`PUT`🔵
+- **Cuerpo:**
+    ```json
+    {
+    "name":"string",
+    "description":"string",
+    "price":"numero",
+    "stock":"numero",
+    "brand":"string",
+    "code": numero
+    }
+    ```
+
+- ➕ **INCREMENTAR INVENTARIO** ➕
+- **URL:** `/proyectoBimestral/v1/products/producto/:uid/incrementarInventario`
+- **METODO:** 🔵`PUT`🔵
+- **Cuerpo:**
+    ```json
+    {
+     "cantidad":"numero"
+    }
+    ```
+
+- ➖ **DECREMENTAR INVENTARIO** ➖
+- **URL:** `/proyectoBimestral/v1/products/producto/:uid/decrementarInventario`
+- **METODO:** 🔵`PUT`🔵
+- **Cuerpo:**
+    ```json
+    {
+     "cantidad":"numero"
+    }
+    ```
+
+- ❗ **PRODUCTOS AGOTADOS** ❗
+- **URL:** `/proyectoBimestral/v1/products/productosAgotados`
+- **METODO:** 🟢`GET`🟢
+- **Cuerpo:**
+    ```json
+    {
+     "stock":"0"
+    }
+- **SI EL STOCK DEL PRODUCTO ES 0 NOS DEVOLVERA EL O LOS PRODUCTOS, SI NO HAY PRODUCTOS CON 0 DE STOCK NO DEVOLVERA NINGUN PRODUCTO**
+
+- 🍠 **PRODUCTOS MAS VENDIDOS** 🍠
+- **URL:** `/proyectoBimestral/v1/products/productosMasVendidos`
+- **METODO:** 🟢`GET`🟢
+
+- ⛔ **ELIMINAR PRODUCTO** ⛔
+- **URL:** `/proyectoBimestral/v1/products/eliminarProducto/:uid`
+- **METODO:** 🔴`DELETE`🔴
+
+-  「 ✦ 𝐍𝐚𝐦𝐞 ✦ 」 **PRODUCTO POR NOMBRE** 「 ✦ 𝐍𝐚𝐦𝐞 ✦ 」
+- **URL:** `/proyectoBimestral/v1/products/buscarProductoPorNombre`
+- **METODO:** 🟢`GET`🟢
+- **SE MANDA EN "PARAMS" ATRIBUTO "name" EN EL VALOR UN NOMBRE QUE EXISTA EN LA BASE DE DATOS Y NOS LO TRAE**
+
+- ⚖️ **PRODUCTO POR CATEGORIA** ⚖️
+- **URL:** `/proyectoBimestral/v1/products/buscarProductoPorCategoria`
+- **METODO:** 🟢`GET`🟢
+- - **SE MANDA EN "PARAMS" ATRIBUTO "category" EN EL VALOR DE CATEGORY QUE EXISTA EN LA BASE DE DATOS Y NOS LO TRAE**
+ 
+## 🛒 MODULO CARRITO DE COMPRAS 🛒
+- 🎨 **CREAR CARRITO** 🎨
+- **URL:** `/proyectoBimestral/v1/shoppingCart/registrarCarritoCompra`
+- **METODO:** 🟡`POST`🟡
+- **Cuerpo:**
+    ```json
+    {
+    "products":[numero],
+    "user":"string"
+    }
+    ```
+- **USER SE ENVIA UN ID DE USUARIO REGISTRADO EN LA BASE DE DATOS**
+- **PRODUCTS:SE ENVIA EL VALOR DEL ATRIBUTO "CODE" REGISTRADO EN PRODUCTOS EN LA BASE DE DATOS**
+
+- 💸 **PAGAR CARRITO** 💸
+- **URL:** `/proyectoBimestral/v1/shoppingCart/pagarCarrito/:uid`
+- **METODO:** 🟣`PATCH`🟣
+- **AL PAGAR GENERA LA FACTURA EN PUBLIC/UPLOADS/BILLS**
+
+- **ACTUALIZAR CARRITO**
+
+- 🔄 **ACTUALIZAR CARRITO** 🔄
+- **URL:** `/proyectoBimestral/v1/products/producto/:uid`
+- **METODO:** 🟣`PATCH`🟣
+- **Cuerpo:**
+    ```json
+    {
+    "deleteProduct":[numero],
+    "addproduct":[numero]
+    }
+    ```
+    - **DELETEPRODUCT:RECIBE EL CODIGO YA REGISTRADO EN EL CARRITO DE COMPRA**
+    - **ADDPRODUCT: RECIBE EL NUEVO CODIGO QUE LE ACTUALIZARA AL CARRITO**
+ 
+-  ⛔ **ELIMINAR CARRITO** ⛔
+- **URL:** `/proyectoBimestral/v1/shoppingCart/eliminarCarrito/:uid`
+- **METODO:** 🔴`DELETE`🔴
+
+##  🚨 ASPECTOS IMPORTANTES 🚨
